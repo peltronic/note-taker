@@ -1,5 +1,5 @@
-vue create note-taker
-#npm i bootstrap-vue
-npm install bootstrap jquery popper.js
-
-npm run serve
+npm install -g @vue/cli-init
+vue init bootstrap-vue/webpack-simple note-taker
+cd note-taker
+npm i
+npm run dev
