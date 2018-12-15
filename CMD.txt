@@ -1,0 +1,5 @@
+vue create note-taker
+#npm i bootstrap-vue
+npm install bootstrap jquery popper.js
+
+npm run serve
