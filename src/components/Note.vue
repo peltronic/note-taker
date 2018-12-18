@@ -7,17 +7,17 @@
         <b-col class="ctrls" cols="3">
             <div v-if="!isEditMode">
                 <span v-on:click="onEdit($event)"><pencil-icon /></span>
-                <span v-on:click="onDelete($event)">Delete</span>
+                <span v-on:click="onDelete($event)" class="clickme-to_delete">Delete</span>
             </div>
             <div v-if="isEditMode">
-                <span v-on:click="onUpdate($event)"><content-save-icon /></span>
-                <span :id="'palette-'+index"><palette-icon :style="'color:'+getColorCode(colorKey)+';'"/></span>
+                <span v-on:click="onUpdate($event)"><content-save-icon v-b-tooltip.hover title="Click to save" /></span>
+                <span :id="'palette-'+index"><palette-icon v-b-tooltip.hover title="Click to change color" :style="'color:'+getColorCode(colorKey)+';'"/></span>
                 <b-popover :target="'palette-'+index" title="Choose a color...">
                     <ul class="color-list">
                         <li v-for="cobj,cnt in this.colors" v-bind:key="cnt" v-on:click="setColor($event, cobj.key)" :style="'background-color: '+cobj.code+';'" class="choose-color" :data-color="cobj.key"></li>
                     </ul>
                 </b-popover>
-                <span v-on:click="isEditMode=false"><close-icon /></span>
+                <span v-on:click="isEditMode=false"><close-icon  v-b-tooltip.hover title="Click to cancel" /></span>
             </div>
         </b-col>
     </b-row>
@@ -94,5 +94,9 @@ ul.color-list li {
     margin-right: 0.5em;
     min-width: 20px;
     min-height: 20px;
+}
+.clickme-to_delete,
+.material-design-icon {
+    cursor: pointer;
 }
 </style>

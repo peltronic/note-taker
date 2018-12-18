@@ -14,14 +14,14 @@
                                 <b-form-input id="note-content" type="text" v-model="createForm.contents" required placeholder="Type the note..."> </b-form-input>
                             </b-col>
                             <b-col class="ctrls" cols="3">
-                                <span v-on:click="onStore($event)"> <content-save-icon /> </span>
-                                <span v-on:click="resetForm()"> <close-icon /> </span>
-                                <span id="palette-new"><palette-icon :style="'color:'+getColorCode(this.createForm.colorKey)+';'"/></span>
+                                <span v-on:click="onStore($event)"> <content-save-icon  v-b-tooltip.hover title="Click to save" /> </span>
+                                <span id="palette-new"><palette-icon v-b-tooltip.hover title="Click to change color" :style="'color:'+getColorCode(this.createForm.colorKey)+';'"/></span>
                                 <b-popover ref="new_note_color_palette" target="palette-new" title="Choose a color...">
                                     <ul class="color-list">
                                         <li v-for="cobj,cnt in this.colors" v-bind:key="cnt" v-on:click="closePalette($event,cobj.key)" :style="'background-color: '+cobj.code+';'" class="choose-color" :data-color="cobj.key"></li>
                                     </ul>
                                 </b-popover>
+                                <span v-on:click="resetForm()"> <close-icon v-b-tooltip.hover title="Click to cancel" /> </span>
                             </b-col>
                         </b-row>
                     </div>
@@ -140,5 +140,8 @@ ul.color-list li {
 }
 a {
     color: #42b983;
+}
+.material-design-icon {
+    cursor: pointer;
 }
 </style>
