@@ -4,6 +4,10 @@
 
 A simple single-page application built with VueJS (no persitent storage). Click "New Note" to create a note. Note colors can be changed by clicking the 'palette' icon in both the create or the edit forms.
 
+## Demo
+
+http://notetaker.peterg-webdeveloper.com/
+
 ## Build Setup
 
 ``` bash
